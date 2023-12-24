@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "src/images/EconomiaBasica.png",
+    "icon": "src/images/EconomiaBasicaIcono.png",
+    "title": "Economía Básica",
+    "description": "Un curso de economía básica te introduce a conceptos fundamentales como oferta, demanda, precios, mercados y cómo funcionan los sistemas económicos. Ayuda a comprender cómo se toman decisiones en la producción, distribución y consumo de bienes y servicios."
+  },
+  {
+    "id": 2,
+    "image": "src/images/EmprendimientoBasico.png",
+    "icon": "src/images/EconomiaBasicaIcono.png",
+    "title": "Emprendimiento Básico",
+    "description": "Un curso de emprendimiento básico explora cómo desarrollar ideas, identificar oportunidades de negocio y llevar a cabo un plan para crear una empresa. Cubre temas como planificación, financiamiento inicial, marketing y gestión básica para emprender con éxito. ¡Es emocionante y práctico!"
+  },
+  {
+    "id": 3,
+    "image": "src/images/temasFiscales.png",
+    "icon": "src/images/EconomiaBasicaIcono.png",
+    "title": "Introducción a temas fiscales",
+    "description": "Los temas fiscales engloban un conjunto de normativas y regulaciones relacionadas con los impuestos. Incluyen aspectos como la tributación, las leyes fiscales, los procedimientos para declarar impuestos, las deducciones permitidas, los regímenes tributarios, las sanciones por incumplimiento y estrategias para optimizar la carga impositiva de individuos y empresas."
+  },
+  {
+    "id": 3,
+    "image": "src/images/temasFiscales.png",
+    "icon": "src/images/EconomiaBasicaIcono.png",
+    "title": "Introducción a temas fiscales",
+    "description": "Los temas fiscales engloban un conjunto de normativas y regulaciones relacionadas con los impuestos. Incluyen aspectos como la tributación, las leyes fiscales, los procedimientos para declarar impuestos, las deducciones permitidas, los regímenes tributarios, las sanciones por incumplimiento y estrategias para optimizar la carga impositiva de individuos y empresas."
+  }
+]
