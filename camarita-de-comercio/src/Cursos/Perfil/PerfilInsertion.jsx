@@ -23,20 +23,20 @@ function ProfileSettings(){
             <TitleCard title="Ajustes de Perfil" topMargin="mt-2">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <InputText labelTitle="Name" defaultValue="Kylian Carrión"/>
+                    <InputText labelTitle="Nombre" defaultValue="Kylian Carrión"/>
                     <InputText labelTitle="Email Id" defaultValue="Kilian7@hotmail.com"/>
-                    <InputText labelTitle="Title" defaultValue="Estudiante"/>
-                    <InputText labelTitle="Place" defaultValue="Loja - Ecuador"/>
-                    <TextAreaInput labelTitle="About" defaultValue="Goleador del CITY, eterno padre de Vinicius"/>
+                    <InputText labelTitle="Ocupación" defaultValue="Estudiante"/>
+                    <InputText labelTitle="Residencia" defaultValue="Loja - Ecuador"/>
+                    <TextAreaInput labelTitle="Acerca de mi" defaultValue="Goleador del CITY, eterno padre de Vinicius"/>
                 </div>
                 <div className="divider" ></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <InputText labelTitle="Language" defaultValue="Español"/>
-                    <InputText labelTitle="Timezone" defaultValue="East"/>
+                    <InputText labelTitle="Idioma" defaultValue="Español"/>
+                    <InputText labelTitle="Zona horaria" defaultValue="Guayaquill"/>
                 </div>
 
-                <div className="mt-16"><button className="btn btn-primary float-right">Actualizar</button></div>
+                <div className="mt-16"><button className="btn btn-primary float-right bg-yellow border-yellow text-blue">Actualizar</button></div>
             </TitleCard>
         </>
     )

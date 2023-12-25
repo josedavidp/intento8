@@ -15,8 +15,15 @@ const AboutItem = ({ id, image, icon, title, description}) => {
                 </div>
                 {/* description  */}
                 <div className="flex flex-col space-y-3">
-                    <h1 className="text-xl text-gray-800 poppins">{title}</h1>
-                    <p className="text-sm text-gray-500 poppins">{description}</p>
+                    <h1 className="text-xl text-yellow poppins">{title}</h1>
+                    <p className="text-sm text-blue poppins">{description}</p>
+                    <>
+
+                    <button type="submit" className="btn px-8 bg-yellow border-yellow text-blue">
+                            Información
+                        </button>
+                    
+                    </>
                 </div>
             </div>
         </div>

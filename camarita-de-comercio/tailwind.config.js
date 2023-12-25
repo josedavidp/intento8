@@ -6,18 +6,18 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: {},
-  },
+
 
   theme: {
     colors: {
       'blue': '#153d6c',
+      'gray2': '#7f7f7f',
       'white': '#ffffff',
       'yellow': '#EFB810',
       'gray': '#EDEDED',
       'black': '#000000',
       'blue-1': '#D7E4F2',
+      'blue-2': '#506E91'
     }
   },
 

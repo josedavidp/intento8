@@ -10,7 +10,7 @@ function Dashboard2() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="flex h-screen overflow-hidden">
+        <div className="flex h-screen overflow-hidden bg-white ">
 
             {/* Sidebar */}
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
@@ -20,7 +20,7 @@ function Dashboard2() {
                 {/*  Site header */}
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
                 <>
-                    <div id='perfil'>
+                    <div id='perfil bg-white'>
                         <PerfilInsertion/>
                     </div>
                 </>
