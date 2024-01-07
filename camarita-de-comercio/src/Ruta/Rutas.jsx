@@ -10,6 +10,8 @@ import Seccion3 from '../informacion/Seccion3';
 import Dashboard from '../Cursos/Page/Dashboard';
 import Footer from '../informacion/Footer';
 import Dashboard2 from "../Cursos/Perfil/Dashboard2";
+import Dashboard3 from "../Cursos/MisCursos/Dashboard3";
+import DashboardHam from "../Cursos/Partials/DashboardHam";
 
 
 const Rutas = () => {
@@ -97,6 +99,24 @@ const Rutas = () => {
                     element={
                         <>
                             <Dashboard2/>
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/misCursos"
+                    element={
+                        <>
+                            <Dashboard3/>
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/continuar"
+                    element={
+                        <>
+                            <DashboardHam/>
                         </>
                     }
                 />

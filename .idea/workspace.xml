@@ -16,9 +16,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2YpcFaegq4vAVxh7iBo9ha1W9VE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,7 +31,8 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/josed/OneDrive/Escritorio/intento-7",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/josed/OneDrive/Escritorio/intento8/camarita-de-comercio",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,6 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701225859391</updated>
       <workItem from="1701225860581" duration="1581000" />
+      <workItem from="1703658444906" duration="94000" />
     </task>
     <servers />
   </component>

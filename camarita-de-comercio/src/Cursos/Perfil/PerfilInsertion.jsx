@@ -33,7 +33,7 @@ function ProfileSettings(){
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <InputText labelTitle="Idioma" defaultValue="Español"/>
-                    <InputText labelTitle="Zona horaria" defaultValue="Guayaquill"/>
+                    <InputText labelTitle="Zona horaria" defaultValue="Guayakill"/>
                 </div>
 
                 <div className="mt-16"><button className="btn btn-primary float-right bg-yellow border-yellow text-blue">Actualizar</button></div>
