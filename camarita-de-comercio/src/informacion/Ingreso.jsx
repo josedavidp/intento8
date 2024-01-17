@@ -1,22 +1,54 @@
 import React, {useState} from 'react';
 import ImgIngresar from '../images/bg.png';
-import {Link} from 'react-router-dom';
+import {Link, useHref} from 'react-router-dom';
+import axios from 'axios';
+
+
 
 
 const Ingreso = () => {
-    const [primerNombre, setFirstName] = useState('');
-    const [segundoNombre, setSurname] = useState('');
+
+   
     const [email, setEmail] = useState('');
-    const [clave, setPassword] = useState('');
-    const [confirmarClave, setConfirmPassword] = useState('');
+    const [password, setClave] = useState('');  
+    const [userId, setUserId] = useState(null);
+    const [nameId, setNameId] = useState(null);
+    
 
-    const handleSubmit = (event) => {
+    //const { startLogin, errorMessage, startRegister } = useAuthStore();
+
+    const handleSubmit = async(event) => {
         event.preventDefault();
-        // Aquí puedes agregar lógica para enviar los datos a tu servidor o realizar las acciones de registro necesarias
-        console.log('Datos enviados:', primerNombre, segundoNombre, email, clave, confirmarClave);
-        // Lógica adicional, como enviar datos a una API o realizar validaciones
-    };
+        
 
+        try {
+            // Enviar datos al backend
+            const response = await axios.post('http://localhost:4001/api/auth/', {
+             
+                email,  
+                password
+            });
+            
+            
+            
+            //window.location.href = '/cursos';
+            window.location.href = `/cursos?userId=${response.data.uid}&nameId=${response.data.name}&emailId=${email}`;
+
+             alert('Inicio de sesion Exitosa!'); 
+
+            
+           
+        } catch (error) {
+            console.error('Error al enviar datos al servidor:', error.message);
+            
+
+            alert('Credenciales Incorrectas o Vacias');
+           
+        // Aquí puedes agregar lógica para enviar los datos a tu servidor o realizar las acciones de registro necesarias
+        
+        // Lógica adicional, como enviar datos a una API o realizar validaciones
+    }
+    };
     return (
         <>
             <div className="min-h-screen py-40" style={{backgroundColor: 'white'}}>
@@ -36,22 +68,22 @@ const Ingreso = () => {
                                 </div>
                                 <div className="mt-5">
                                     <input type="password" placeholder="Clave"
-                                           className="border border-gray py-1 px-2 w-full" value={clave}
-                                           onChange={(e) => setPassword(e.target.value)}/>
+                                           className="border border-gray py-1 px-2 w-full" value={password}
+                                           onChange={(e) => setClave(e.target.value)}/>
                                 </div>
                                 <div className="mt-5">
                                 </div>
                                 <div className="mt-5">
                                     <Link to="/cursos">
                                         <button type="submit"
-                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold">Ingresa
+                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold" onClick={handleSubmit}>Ingresa
                                         </button>
                                     </Link>
                                 </div>
                                 <div className="mt-5">
                                     <Link to="/registro">
                                         <button type="submit"
-                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold">No
+                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold" >No
                                             tengo una cuenta
                                         </button>
                                     </Link>

@@ -2,15 +2,28 @@ import React, { useEffect, useState } from 'react';
 import AboutItem from './AboutItem';
 import CourseDetails from '../Informacion/Informacion';
 
-const AboutUs = () => {
+//AQUI SE CONSUME EL JSON 
+
+const AboutUs = ({ userId }) => {
     const [aboutData, setAboutData] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
 
-    useEffect(() => {
+    /*useEffect(() => {
         fetch('/aboutus.json')
             .then(res => res.json())
             .then(data => setAboutData(data));
+    }, []);*/
+
+    useEffect(() => {
+
+      //  console.log('userId:', userId); 
+
+        fetch('http://localhost:4001/api/events')
+            .then(res => res.json())
+            .then(data => setAboutData(data.eventos))  // Establecer aboutData en data.eventos
+            .catch(error => console.error('Error fetching events:', error));
     }, []);
+    
 
     const openCourseDetails = (course) => {
         setSelectedCourse(course);
@@ -19,6 +32,38 @@ const AboutUs = () => {
     const closeCourseDetails = () => {
         setSelectedCourse(null);
     };
+
+
+    const handleCourseRegistration = async (course) => {
+        try {
+          const response = await fetch('http://localhost:4001/api/registro', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId: userId, 
+              courseData: course,
+            }),
+          });
+      
+          if (response.ok) {
+            
+            console.log('Registro exitoso', response.data);
+            alert('Registro de Curso exitoso');
+          } else {
+           
+            console.error('Error en el registro:', response.statusText);
+          }
+        } catch (error) {
+          
+          console.error('Error al registrar el curso:', error.message);
+        }
+      };
+      
+
+    
+
 
     return (
         <div className="max-w-screen-xl h-full mx-auto my-12 px-6 bg-gray">
@@ -44,9 +89,10 @@ const AboutUs = () => {
                         <div>
                             <img src={selectedCourse.image} alt={selectedCourse.title} className="mb-4" />
                         </div>
-                        <button className="px-4 py-2 bg-yellow text-blue rounded-md">
-                            Registrarse en el curso
-                        </button>
+                        <button onClick={() => handleCourseRegistration(selectedCourse)} className="px-4 py-2 bg-yellow text-blue rounded-md">
+                                    Registrarse en el curso
+                                    </button>
+
                     </div>
                 </div>
             )}

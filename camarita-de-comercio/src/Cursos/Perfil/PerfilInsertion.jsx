@@ -3,7 +3,7 @@ import TitleCard from "./TitleCard"
 import InputText from './ImputText'
 import TextAreaInput from './TextAreaImput'
 
-function ProfileSettings(){
+function ProfileSettings({nameId,emailId}){
 
 
     // const dispatch = useDispatch()
@@ -23,8 +23,8 @@ function ProfileSettings(){
             <TitleCard title="Ajustes de Perfil" topMargin="mt-2">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <InputText labelTitle="Nombre" defaultValue="Kylian Carrión"/>
-                    <InputText labelTitle="Email Id" defaultValue="Kilian7@hotmail.com"/>
+                    <InputText labelTitle="Nombre" defaultValue={nameId} />
+                    <InputText labelTitle="Email Id" defaultValue={emailId}/>
                     <InputText labelTitle="Ocupación" defaultValue="Estudiante"/>
                     <InputText labelTitle="Residencia" defaultValue="Loja - Ecuador"/>
                     <TextAreaInput labelTitle="Acerca de mi" defaultValue="Goleador del CITY, eterno padre de Vinicius"/>

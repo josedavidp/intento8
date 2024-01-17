@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import AboutItem2 from './AboutItem2';
 
-const MisCursos = () => {
+const MisCursos = ({userId}) => {
     const [aboutData, setAboutData] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
 
-    useEffect(() => {
+
+
+  /*  useEffect(() => {
         fetch('/aboutus.json')
             .then(res => res.json())
             .then(data => setAboutData(data));
-    }, []);
+        }, []);
+*/
+
+
+    useEffect(() => {
+        const url = userId ? `http://localhost:4001/api/registro/mis-cursos/${userId}` : 'http://localhost:4001/api/events';
+      
+        fetch(url)
+          .then(res => res.json())
+          .then(data => setAboutData(data.cursos || []))  // Establecer aboutData en data.cursos si está disponible
+          .catch(error => console.error('Error fetching courses:', error));
+      }, [userId]);
+
 
     const openCourseDetails = (course) => {
         setSelectedCourse(course);

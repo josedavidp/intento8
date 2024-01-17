@@ -5,7 +5,8 @@ import Header from '../Partials/Header2';
 import AboutUs from "../MisCursos/AboutUs";
 
 
-function Dashboard() {
+function Dashboard({userId,nameId}) {
+    
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -18,10 +19,10 @@ function Dashboard() {
             {/* Content area */}
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 {/*  Site header */}
-                <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
+                <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} nameId={nameId}/>
                 <>
                     <div id='aboutUs'>
-                        <AboutUs/>
+                        <AboutUs userId={userId} />
                     </div>
                 </>
 

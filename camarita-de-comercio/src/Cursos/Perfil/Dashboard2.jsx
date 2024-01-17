@@ -5,7 +5,7 @@ import Header from '../Partials/Header2';
 import PerfilInsertion from "./PerfilInsertion";
 
 
-function Dashboard2() {
+function Dashboard2({nameId,emailId}) {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -21,7 +21,7 @@ function Dashboard2() {
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
                 <>
                     <div id='perfil bg-white'>
-                        <PerfilInsertion/>
+                        <PerfilInsertion nameId={nameId} emailId={emailId}/>
                     </div>
                 </>
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Sidebar from '../Partials/Sidebar';
 import Header from '../Partials/Header2';
-import Sidebar2 from '../Partials/Sidebar2'; // Reemplaza con el nombre correcto de tu Sidebar2
+import DashboardHam from '../Partials/DashboardHam';
+// Reemplaza con el nombre correcto de tu Sidebar2
 
 function Dashboard4() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -18,7 +19,9 @@ function Dashboard4() {
 
                 <>
                     {/* Introduce tus nuevos Headers y Sidebars aquí */}
-                    <Sidebar2 />
+                   <DashboardHam/>
+
+                    
                 </>
             </div>
         </div>

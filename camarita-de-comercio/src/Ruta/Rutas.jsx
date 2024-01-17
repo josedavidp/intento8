@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import NavBar from '../informacion/NavBar';
 import Seccion1 from '../informacion/Seccion1';
 import Objetivos from '../informacion/Objetivos';
@@ -11,20 +11,31 @@ import Dashboard from '../Cursos/Page/Dashboard';
 import Footer from '../informacion/Footer';
 import Dashboard2 from "../Cursos/Perfil/Dashboard2";
 import Dashboard3 from "../Cursos/MisCursos/Dashboard3";
-import DashboardHam from "../Cursos/Partials/DashboardHam";
+import CrearCurso from '../Cursos/Perfil/CrearCurso';
+import Dashboard4 from '../Cursos/MisCursos/Dashboard4';
 
-
+export let authStatus = "True";
 const Rutas = () => {
+
+    //const navigate = useNavigate();
+    //const location = useLocation();
+    const userId = new URLSearchParams(location.search).get('userId');
+    const nameId = new URLSearchParams(location.search).get('nameId');
+    const emailId = new URLSearchParams(location.search).get('emailId');
+    const isCrearCursoEnabled = userId === "659ebdeb30afb36655576ee5";
+
+  
+
     return (
         <Router>
-            {/* NavBar dentro de Routes para envolver solo las rutas especÃ­ficas */}
+            {/* NavBar dentro de Routes para envolver solo las rutas específicas */}
             <Routes>
                 <Route
                     path="/"
                     element={
                         <>
-                            <NavBar/>
-                            <Seccion1/>
+                            <NavBar />
+                            <Seccion1 />
                         </>
                     }
                 />
@@ -32,26 +43,28 @@ const Rutas = () => {
                     path="/objetivos"
                     element={
                         <>
-                            <NavBar/>
-                            <Objetivos/>
+                            <NavBar />
+                            <Objetivos />
                         </>
                     }
                 />
+
                 <Route
                     path="/ingreso"
                     element={
                         <>
-                            <NavBar/>
-                            <Ingreso/>
+                            <NavBar />
+                            <Ingreso />
                         </>
                     }
                 />
+
                 <Route
                     path="/registro"
                     element={
                         <>
-                            <NavBar/>
-                            <Registro/>
+                            <NavBar />
+                            <Registro />
                         </>
                     }
                 />
@@ -59,8 +72,8 @@ const Rutas = () => {
                     path="/conoceMas"
                     element={
                         <>
-                            <NavBar/>
-                            <Seccion2/>
+                            <NavBar />
+                            <Seccion2 />
                         </>
                     }
                 />
@@ -68,8 +81,8 @@ const Rutas = () => {
                     path="/queBuscamos"
                     element={
                         <>
-                            <NavBar/>
-                            <Seccion3/>
+                            <NavBar />
+                            <Seccion3 />
                         </>
                     }
                 />
@@ -78,18 +91,19 @@ const Rutas = () => {
                     path="/footer"
                     element={
                         <>
-                            <NavBar/>
-                            <Footer/>
+                            <NavBar />
+                            <Footer />
                         </>
                     }
                 />
 
-                {/* Dashboard fuera del NavBar */}
                 <Route
                     path="/cursos"
                     element={
                         <>
-                            <Dashboard/>
+                            <Dashboard userId={userId} nameId={nameId}/>
+                            {/* Pasar userId como prop a AboutUs */}
+                           
                         </>
                     }
                 />
@@ -98,17 +112,31 @@ const Rutas = () => {
                     path="/perfil"
                     element={
                         <>
-                            <Dashboard2/>
+                            <Dashboard2 nameId={nameId} emailId={emailId} />
                         </>
                     }
                 />
 
-                <Route
+                <Route  
                     path="/misCursos"
                     element={
                         <>
-                            <Dashboard3/>
+                            <Dashboard3 userId={userId}/>
                         </>
+                    }
+                />
+                    
+                    <Route
+                    path="/CrearCurso"
+                    element={
+                        isCrearCursoEnabled ? (
+                            <>
+                                <CrearCurso />
+                            </>
+                        ) : (
+                            // Si el userId no es el esperado, puedes redirigir a otra página o mostrar un mensaje
+                            <Dashboard userId={userId} nameId={nameId}/>
+                        )
                     }
                 />
 
@@ -116,7 +144,7 @@ const Rutas = () => {
                     path="/continuar"
                     element={
                         <>
-                            <DashboardHam/>
+                            <Dashboard4 />
                         </>
                     }
                 />

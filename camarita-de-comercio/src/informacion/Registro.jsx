@@ -3,7 +3,11 @@ import axios from 'axios';
 import ImgIngresar from '../images/bg.png';
 
 
+
 const Registro = () => {
+
+
+
     const [name, setFirstName] = useState('');
     const [lastname, setSurname] = useState('');
     const [email, setEmail] = useState('');
@@ -16,7 +20,14 @@ const Registro = () => {
 
         if (aceptoTerminos) {
             try {
+
                 // Enviar datos al backend
+                if (password !== password2) {
+
+                    alert('ERROR! Las Contraseñas no coinciden')
+                    return;
+                }
+
                 const response = await axios.post('http://localhost:4001/api/auth/new', {
                     name,
                     lastname,
@@ -24,7 +35,7 @@ const Registro = () => {
                     password,
                     password2,
                 });
-
+                    alert('Registro Exitoso!! Porfavor Regrese al inicio de sesion')
                 console.log('Respuesta del servidor:', response.data);
 
                 // Lógica adicional, como redireccionar o mostrar un mensaje de éxito

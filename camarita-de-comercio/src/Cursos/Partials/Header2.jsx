@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import UserMenu from '../components/DropdownProfile';
 
 
-function Header({ sidebarOpen, setSidebarOpen }) {
+function Header({ sidebarOpen, setSidebarOpen,nameId }) {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
   return (
@@ -36,7 +36,7 @@ function Header({ sidebarOpen, setSidebarOpen }) {
 
             {/*  Divider */}
             <hr className="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" />
-            <UserMenu align="right" />
+            <UserMenu align="right" nameId={nameId}/>
           </div>
         </div>
       </div>

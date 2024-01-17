@@ -5,7 +5,7 @@ import Header from '../Partials/Header2';
 import MisCursos from "../MisCursos/MisCursos";
 
 
-function Dashboard3() {
+function Dashboard3({userId}) {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -21,7 +21,7 @@ function Dashboard3() {
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
                 <>
                     <div id='misCursos'>
-                        <MisCursos/>
+                        <MisCursos userId={userId}/>
                     </div>
                 </>
 
