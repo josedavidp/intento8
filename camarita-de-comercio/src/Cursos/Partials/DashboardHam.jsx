@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import data from "../../../aboutus.json";
-import data2 from "../../../aboutus2.json";
+import React, { useState, useEffect } from "react";
 
 function DashboardHam() {
   const [contentToShow, setContentToShow] = useState(null);
+  const [aboutData, setAboutData] = useState([]);
+  const idCurso = new URLSearchParams(location.search).get('idCurso');
 
   const handleInformationClick = (info) => {
     setContentToShow(info);
@@ -13,67 +13,59 @@ function DashboardHam() {
     setContentToShow(null);
   };
 
-  // Agrupar módulos por ID de curso para aboutus.json
-  const groupedModules1 = data.reduce((acc, module) => {
-    const courseId = module.id;
+  useEffect(() => {
+    fetch(`http://localhost:4001/api/events/${idCurso}`)
+      .then(res => res.json())
+      .then(data => setAboutData(data.cursos))
+      .catch(error => console.error('Error fetching courses:', error));
+  }, [idCurso]);
 
-    if (!acc[courseId]) {
-      acc[courseId] = [];
-    }
-
-    acc[courseId].push(module);
-
-    return acc;
-  }, {});
-
-  // Agrupar módulos por ID de curso para aboutus2.json
-  const groupedModules2 = data2.reduce((acc, module) => {
-    const courseId = module.id;
-
-    if (!acc[courseId]) {
-      acc[courseId] = [];
-    }
-
-    acc[courseId].push(module);
-
-    return acc;
-  }, {});
-
-  const allGroupedModules = { ...groupedModules1, ...groupedModules2 };
+  console.log( aboutData);
 
   return (
-      <div className="flex h-screen overflow-hidden bg-gray p-4 flex-col">
-        {contentToShow ? (
-            <>
-              <button
-                  onClick={handleGoBack}
-                  className="bg-yellow text-blue border border-yellow rounded-md
-                    py-2 px-4 hover:bg-blue hover:border-blue hover:text-white focus:outline-none"
-              >
-                Volver
-              </button>
-              <h2 className="text-2xl font-bold mb-4">{contentToShow.Titulo || contentToShow.titulo}</h2>
-              <div dangerouslySetInnerHTML={{ __html: contentToShow.Video || contentToShow.video || "" }} />
-              <p>{contentToShow.Descripción || contentToShow.description}</p>
-            </>
-        ) : (
-            Object.keys(allGroupedModules).map((courseId) => (
-                <div key={courseId} className="mb-2">
-                  {allGroupedModules[courseId].map((module, index) => (
-                      <React.Fragment key={index}>
-                        <button
-                            onClick={() => handleInformationClick(module)}
-                            className="text-blue-500 hover:text-blue-700 cursor-pointer"
-                        >
-                          {module.Titulo || module.title}
-                        </button>
-                        <br/>
-                      </React.Fragment>
-                  ))}
-                </div>
-            ))
-        )}
-      </div>
+    <div className="flex h-screen overflow-hidden bg-gray p-4 flex-col">
+      {contentToShow ? (
+        <>
+          <button
+            onClick={handleGoBack}
+            className="bg-yellow text-blue border border-yellow rounded-md
+                      py-2 px-4 hover:bg-blue hover:border-blue hover:text-white focus:outline-none"
+          >
+            Volver
+          </button>
+          <h2 className="text-2xl font-bold mb-4">{contentToShow.Titulo || contentToShow.titulo}</h2>
+          <div dangerouslySetInnerHTML={{ __html: contentToShow.Video || contentToShow.video || "" }} />
+          <p>{contentToShow.Informacion_extra || contentToShow.informacion_extra}</p>
+        </>
+      ) : (
+        <div className="mb-2">
+          {aboutData.map((course, index) => {
+            console.log("course1:", course.idCurso);
+            console.log("course:", idCurso);
+            // Comparar el id del curso con el idCurso seleccionado
+            if (course.idCurso === idCurso) {   
+              
+              console.log("Mostrando curso:", course);
+
+              return (
+                <React.Fragment key={index}>
+                  <button
+                    onClick={() => handleInformationClick(course)}
+                    className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                  >
+                    {course.titulo || course.title}
+                  </button>
+                  <br />
+                </React.Fragment>
+              );
+            } else {
+              // Omitir cursos con diferentes idCurso
+              return null;
+            }
+          })}
+        </div>
+      )}
+    </div>
   );
 }
 

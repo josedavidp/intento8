@@ -32,6 +32,7 @@ const MisCursos = ({userId}) => {
     const closeCourseDetails = () => {
         setSelectedCourse(null);
     };
+    
 
     return (
         <div className="max-w-screen-xl h-full mx-auto my-12 px-6 bg-gray">
@@ -39,7 +40,7 @@ const MisCursos = ({userId}) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-20 mt-8">
                 {aboutData.map(item => (
-                    <AboutItem2 key={item.id} course={item} onOpenDetails={openCourseDetails} />
+                    <AboutItem2 key={item.id} course={item} onOpenDetails={openCourseDetails}  />
                 ))}
             </div>
 
