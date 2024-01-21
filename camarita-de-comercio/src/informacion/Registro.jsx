@@ -21,7 +21,7 @@ const Registro = () => {
         if (aceptoTerminos) {
             try {
 
-                // Enviar datos al backend
+               
                 if (password !== password2) {
 
                     alert('ERROR! Las Contraseñas no coinciden')
@@ -38,14 +38,10 @@ const Registro = () => {
                     alert('Registro Exitoso!! Porfavor Regrese al inicio de sesion')
                 console.log('Respuesta del servidor:', response.data);
 
-                // Lógica adicional, como redireccionar o mostrar un mensaje de éxito
+               
             } catch (error) {
                 console.error('Error al enviar datos al servidor:', error.message);
-                // Lógica adicional, como mostrar un mensaje de error al usuario
-                // Aquí puedes agregar lógica para enviar los datos a tu servidor o realizar las acciones de registro necesarias
-                // console.log('Datos enviados:', primerNombre, segundoNombre, email, clave, confirmarClave);
-                // Lógica adicional, como enviar datos a una API o realizar validaciones
-
+               
             }
         } else {
             alert('Por favor acepta los términos y condiciones');

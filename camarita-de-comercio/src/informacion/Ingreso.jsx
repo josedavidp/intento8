@@ -32,7 +32,9 @@ const Ingreso = () => {
             
             
             //window.location.href = '/cursos';
-            window.location.href = `/cursos?userId=${response.data.uid}&nameId=${response.data.name}&emailId=${email}`;
+            window.location.href = `/cursos?userId=${response.data.uid}&nameId=${response.data.name}&emailId=${email}
+            &ageId=${response.data.age}&nacionalidadId=${response.data.nacionalidad}&ocupacionId=${response.data.ocupacion}
+            &residenciaId=${response.data.residencia}`;
 
              alert('Inicio de sesion Exitosa!'); 
 
@@ -74,7 +76,7 @@ const Ingreso = () => {
                                 <div className="mt-5">
                                 </div>
                                 <div className="mt-5">
-                                    <Link to="/cursos">
+                                    <Link to="/perfil">
                                         <button type="submit"
                                                 className="w-full bg-yellow py-3 text-center text-blue font-semibold" onClick={handleSubmit}>Ingresa
                                         </button>

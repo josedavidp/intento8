@@ -1,24 +1,33 @@
-import { useState } from "react"
+import { useState, useEffect } from "react";
 
+function InputText({ labelTitle, labelStyle, type, containerStyle, defaultValue, placeholder, updateFormValue, updateType }) {
+  const [value, setValue] = useState(defaultValue);
 
-function TextAreaInput({labelTitle, labelStyle, type, containerStyle, defaultValue, placeholder, updateFormValue, updateType}){
+  useEffect(() => {
+    // Actualizar el valor cuando defaultValue cambia externamente
+    setValue(defaultValue);
+  }, [defaultValue]);
 
-    const [value, setValue] = useState(defaultValue)
-
-    const updateInputValue = (val) => {
-        setValue(val)
-        updateFormValue({updateType, value : val})
-    }
-
-    return(
-        <div className={`form-control w-full ${containerStyle}`}>
-            <label className="label">
-                <span className={"label-text text-base-content text-blue font-semibold " + labelStyle}>{labelTitle}</span>
-            </label>
-            <textarea value={value} className="textarea textarea-bordered w-full bg-white" placeholder={placeholder || ""} onChange={(e) => updateInputValue(e.target.value)}></textarea>
-        </div>
-    )
+  const updateInputValue = (e) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+    updateFormValue({ name: updateType, value: newValue });
+  };
+  
+  return (
+    <div className={`form-control w-full ${containerStyle}`}>
+      <label className="label">
+        <span className={"label-text text-base-content text-blue font-semibold " + labelStyle}>{labelTitle}</span>
+      </label>
+      <input 
+        type={type || "text"} 
+        value={value} 
+        placeholder={placeholder || ""} 
+        onChange={updateInputValue} 
+        className="input input-bordered w-full bg-white" 
+      />
+    </div>
+  );
 }
 
-
-export default TextAreaInput
+export default InputText;

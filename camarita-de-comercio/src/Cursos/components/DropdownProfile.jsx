@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 import Transition from '../utils/Transition';
 
@@ -66,16 +67,16 @@ function DropdownProfile({align,nameId}) {
           onBlur={() => setDropdownOpen(false)}
         >
 
-          <ul>
-            <li>
+            <ul>
+            <Link to="/ingreso">
               <a
-                className="font-medium text-sm text-black hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/signin"
+                className="font-medium text-sm text-black hover:text-indigo-600 dark:hover:text-indigo-400 flex items-start py-1 px-2"
+                style={{whiteSpace: "nowrap"}}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
-                Salir
+                Cerrar sesión
               </a>
-            </li>
+            </Link>
           </ul>
         </div>
       </Transition>

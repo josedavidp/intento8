@@ -7,17 +7,17 @@ const MisCursos = ({userId}) => {
 
 
 
-  /*  useEffect(() => {
+  /*useEffect(() => {
         fetch('/aboutus.json')
             .then(res => res.json())
             .then(data => setAboutData(data));
-        }, []);
-*/
+        }, []);*/
+
 
 
     useEffect(() => {
         const url = userId ? `http://localhost:4001/api/registro/mis-cursos/${userId}` : 'http://localhost:4001/api/events';
-      
+   
         fetch(url)
           .then(res => res.json())
           .then(data => setAboutData(data.cursos || []))  // Establecer aboutData en data.cursos si está disponible

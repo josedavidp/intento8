@@ -22,13 +22,24 @@ const Rutas = () => {
     const userId = new URLSearchParams(location.search).get('userId');
     const nameId = new URLSearchParams(location.search).get('nameId');
     const emailId = new URLSearchParams(location.search).get('emailId');
+
+    const ageId = new URLSearchParams(location.search).get('ageId');
+    const nacionalidadId = new URLSearchParams(location.search).get('nacionalidadId');
+    const ocupacionId = new URLSearchParams(location.search).get('ocupacionId');
+    const residenciaId = new URLSearchParams(location.search).get('residenciaId');
+
     const isCrearCursoEnabled = userId === "659ebdeb30afb36655576ee5";
+
+ 
 
   
 
     return (
+        
         <Router>
             {/* NavBar dentro de Routes para envolver solo las rutas específicas */}
+
+            
             <Routes>
                 <Route
                     path="/"
@@ -112,7 +123,9 @@ const Rutas = () => {
                     path="/perfil"
                     element={
                         <>
-                            <Dashboard2 nameId={nameId} emailId={emailId} />
+                            <Dashboard2 userId={userId}nameId={nameId} emailId={emailId} 
+                            ageId={ageId}nacionalidadId={nacionalidadId}
+                            ocupacionId={ocupacionId}residenciaId={residenciaId} />
                         </>
                     }
                 />
@@ -134,7 +147,7 @@ const Rutas = () => {
                                 <CrearCurso />
                             </>
                         ) : (
-                            // Si el userId no es el esperado, puedes redirigir a otra página o mostrar un mensaje
+                            
                             <Dashboard userId={userId} nameId={nameId}/>
                         )
                     }

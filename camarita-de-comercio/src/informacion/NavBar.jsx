@@ -41,7 +41,7 @@ const Navbar = () => {
                         <li><a href="#seccion3" onClick={() => scrollToSection("seccion3")}>¿Qué buscamos?</a></li>
                         <li><a href="#objetivos" onClick={() => scrollToSection("objetivos")}>Nuestros Objetivos</a>
                         </li>
-                        <li><a href="#cursos" onClick={() => scrollToSection("cursos")}>Cursos</a></li>
+                       
                         <li><Link to="/ingreso">Ingresar</Link></li>
                     </ul>
                 </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
                     <li><a href="#seccion2" onClick={() => scrollToSection("seccion2")}>Conoce más</a></li>
                     <li><a href="#seccion3" onClick={() => scrollToSection("seccion3")}>¿Qué buscamos?</a></li>
                     <li><a href="#objetivos" onClick={() => scrollToSection("objetivos")}>Objetivos</a></li>
-                    <li><a href="#cursos" onClick={() => scrollToSection("cursos")}>Cursos</a></li>
+                   
                     <li><Link to="/ingreso">Ingresar</Link></li>
                 </ul>
             </div>
