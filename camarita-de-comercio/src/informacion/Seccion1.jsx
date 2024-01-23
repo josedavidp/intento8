@@ -26,7 +26,8 @@ const BannerItems = () => {
                 </div>
                 <div className="absolute lg:flex flex-wrap justify-end transform -translate-y-1/2 left-24 top-2/3">
                     <Link to="/ingreso">
-                        <button type="submit" className="btn px-8 bg-yellow border-black text-white">
+                        <button type="submit" className="bg-yellow text-blue border border-yellow rounded-md
+                    py-2 px-6 hover:bg-blue hover:border-blue hover:text-white focus:outline-none font-semibold">
                             Ingresar
                         </button>
                     </Link>

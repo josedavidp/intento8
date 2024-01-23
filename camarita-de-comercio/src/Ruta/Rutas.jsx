@@ -11,8 +11,9 @@ import Dashboard from '../Cursos/Page/Dashboard';
 import Footer from '../informacion/Footer';
 import Dashboard2 from "../Cursos/Perfil/Dashboard2";
 import Dashboard3 from "../Cursos/MisCursos/Dashboard3";
-import CrearCurso from '../Cursos/Perfil/CrearCurso';
+
 import Dashboard4 from '../Cursos/MisCursos/Dashboard4';
+import DashboardCrearCurso from '../Cursos/Perfil/DashboardCrearCurso' ;
 
 export let authStatus = "True";
 const Rutas = () => {
@@ -144,7 +145,9 @@ const Rutas = () => {
                     element={
                         isCrearCursoEnabled ? (
                             <>
-                                <CrearCurso />
+                                
+                                < DashboardCrearCurso />
+                                
                             </>
                         ) : (
                             

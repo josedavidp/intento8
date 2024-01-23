@@ -78,7 +78,7 @@ const Ingreso = () => {
                                 <div className="mt-5">
                                     <Link to="/perfil">
                                         <button type="submit"
-                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold" onClick={handleSubmit}>Ingresa
+                                                className="w-full bg-yellow py-3 text-center text-blue font-semibold" onClick={handleSubmit}>Ingresar
                                         </button>
                                     </Link>
                                 </div>

@@ -77,7 +77,7 @@ const AboutUs = ({userId}) => {
                             Regresar
                         </button>
                         <h1 className="text-4xl text-yellow font-semibold">{selectedCourse.title}</h1>
-                        <img src={selectedCourse.image} alt={selectedCourse.title} className="mb-4 block mx-auto"/>
+                        <img src={selectedCourse.image} alt={selectedCourse.title} className="mt-2 object-cover w-auto h-48 transform transition duration-700 rounded-2xl mx-auto"/>
                         <h1 className="text-3xl text-yellow font-semibold">Descripción</h1>
                         <h1 className="text-xl mb-4 text-blue">{selectedCourse.description}</h1>
                         <h1 className="text-2xl text-yellow font-semibold">Contenido</h1>
