@@ -41,6 +41,7 @@ const Registro = () => {
                
             } catch (error) {
                 console.error('Error al enviar datos al servidor:', error.message);
+                alert('Porfavor Complete Todos Los Campos')
                
             }
         } else {

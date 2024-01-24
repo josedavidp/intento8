@@ -30,143 +30,216 @@ const Rutas = () => {
     const residenciaId = new URLSearchParams(location.search).get('residenciaId');
 
     const isCrearCursoEnabled = userId === "659ebdeb30afb36655576ee5";
-
- 
-
-  
+    console.log(userId);
 
     return (
-        
         <Router>
-            {/* NavBar dentro de Routes para envolver solo las rutas específicas */}
-
-            
-            <Routes>
+          <Routes>
+            {userId ? (
+              <>
+                {/* Rutas accesibles solo cuando el usuario está autenticado */}
                 <Route
-                    path="/"
-                    element={
-                        <>
-                            <NavBar />
-                            <Seccion1 />
-                        </>
-                    }
+                  path="/cursos"
+                  element={
+                    <>
+                      <Dashboard userId={userId} nameId={nameId} />
+                      {/* Pasar userId como prop a AboutUs */}
+                    </>
+                  }
                 />
+      
                 <Route
-                    path="/objetivos"
-                    element={
-                        <>
-                            <NavBar />
-                            <Objetivos />
-                        </>
-                    }
+                  path="/perfil"
+                  element={
+                    <>
+                      <Dashboard2
+                        userId={userId}
+                        nameId={nameId}
+                        emailId={emailId}
+                        ageId={ageId}
+                        nacionalidadId={nacionalidadId}
+                        ocupacionId={ocupacionId}
+                        residenciaId={residenciaId}
+                      />
+                    </>
+                  }
                 />
-
+      
                 <Route
-                    path="/ingreso"
-                    element={
-                        <>
-                            <NavBar />
-                            <Ingreso />
-                        </>
-                    }
+                  path="/misCursos"
+                  element={
+                    <>
+                      <Dashboard3 userId={userId} />
+                    </>
+                  }
                 />
-
+      
                 <Route
-                    path="/registro"
-                    element={
-                        <>
-                            <NavBar />
-                            <Registro />
-                        </>
-                    }
+                  path="/CrearCurso"
+                  element={
+                    isCrearCursoEnabled ? (
+                      <>
+                        <DashboardCrearCurso />
+                      </>
+                    ) : (
+                      <Dashboard userId={userId} nameId={nameId} />
+                    )
+                  }
                 />
+      
                 <Route
-                    path="/conoceMas"
-                    element={
-                        <>
-                            <NavBar />
-                            <Seccion2 />
-                        </>
-                    }
-                />
-                <Route
-                    path="/queBuscamos"
-                    element={
-                        <>
-                            <NavBar />
-                            <Seccion3 />
-                        </>
-                    }
-                />
-
-                <Route
-                    path="/footer"
-                    element={
-                        <>
-                            <NavBar />
-                            <Footer />
-                        </>
-                    }
+                  path="/continuar"
+                  element={
+                    <>
+                      <Dashboard4 />
+                    </>
+                  }
                 />
 
                 <Route
-                    path="/cursos"
-                    element={
-                        <>
-                            <Dashboard userId={userId} nameId={nameId}/>
-                            {/* Pasar userId como prop a AboutUs */}
-                           
-                        </>
-                    }
+                  path="/"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion1 />
+                    </>
+                  }
                 />
-
                 <Route
-                    path="/perfil"
-                    element={
-                        <>
-                            <Dashboard2 userId={userId}nameId={nameId} emailId={emailId} 
-                            ageId={ageId}nacionalidadId={nacionalidadId}
-                            ocupacionId={ocupacionId}residenciaId={residenciaId} />
-                        </>
-                    }
+                  path="/objetivos"
+                  element={
+                    <>
+                      <NavBar />
+                      <Objetivos />
+                    </>
+                  }
                 />
-
-                <Route  
-                    path="/misCursos"
-                    element={
-                        <>
-                            <Dashboard3 userId={userId}/>
-                        </>
-                    }
-                />
-                    
-                    <Route
-                    path="/CrearCurso"
-                    element={
-                        isCrearCursoEnabled ? (
-                            <>
-                                
-                                < DashboardCrearCurso />
-                                
-                            </>
-                        ) : (
-                            
-                            <Dashboard userId={userId} nameId={nameId}/>
-                        )
-                    }
-                />
-
+      
                 <Route
-                    path="/continuar"
-                    element={
-                        <>
-                            <Dashboard4 />
-                        </>
-                    }
+                  path="/ingreso"
+                  element={
+                    <>
+                      <NavBar />
+                      <Ingreso />
+                    </>
+                  }
                 />
-            </Routes>
+      
+                <Route
+                  path="/registro"
+                  element={
+                    <>
+                      <NavBar />
+                      <Registro />
+                    </>
+                  }
+                />
+                <Route
+                  path="/conoceMas"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion2 />
+                    </>
+                  }
+                />
+                <Route
+                  path="/queBuscamos"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion3 />
+                    </>
+                  }
+                />
+      
+                <Route
+                  path="/footer"
+                  element={
+                    <>
+                      <NavBar />
+                      <Footer />
+                    </>
+                  }
+                />
+              </>
+            ) : (
+              <>
+                {/* Rutas accesibles solo cuando el usuario NO está autenticado */}
+                <Route
+                  path="/"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion1 />
+                    </>
+                  }
+                />
+                <Route
+                  path="/objetivos"
+                  element={
+                    <>
+                      <NavBar />
+                      <Objetivos />
+                    </>
+                  }
+                />
+      
+                <Route
+                  path="/ingreso"
+                  element={
+                    <>
+                      <NavBar />
+                      <Ingreso />
+                    </>
+                  }
+                />
+      
+                <Route
+                  path="/registro"
+                  element={
+                    <>
+                      <NavBar />
+                      <Registro />
+                    </>
+                  }
+                />
+                <Route
+                  path="/conoceMas"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion2 />
+                    </>
+                  }
+                />
+                <Route
+                  path="/queBuscamos"
+                  element={
+                    <>
+                      <NavBar />
+                      <Seccion3 />
+                    </>
+                  }
+                />
+      
+                <Route
+                  path="/footer"
+                  element={
+                    <>
+                      <NavBar />
+                      <Footer />
+                    </>
+                  }
+                />
+              </>
+            )}
+      
+            {/* Otras rutas comunes para usuarios autenticados o no autenticados */}
+            {/* ... */}
+          </Routes>
         </Router>
-    );
+      );
 };
 
 export default Rutas;

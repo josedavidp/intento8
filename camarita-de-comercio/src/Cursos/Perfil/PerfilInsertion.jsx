@@ -15,7 +15,7 @@ function ProfileSettings({
 }) {
   const [userData, setUserData] = useState({
     nombre: nameId,
-    edad: ageId,
+    age: ageId,
     nacionalidad: nacionalidadId,
     ocupacion: ocupacionId,
     residencia: residenciaId,
@@ -66,25 +66,24 @@ function ProfileSettings({
           />
           <InputText labelTitle="Email" defaultValue={emailId} disabled />
           <InputText
-            labelTitle="Edad"
-            defaultValue={ageId !== undefined ? ageId + " Años" : "Vacio"}
-            updateFormValue={(value) => onInputChange("edad", value)}
-          />
+              labelTitle="Edad"
+              placeholder={ageId ? (ageId) : ("Vacio")}
+              updateFormValue={(value) => onInputChange("age", value)}
+            />
+
           <InputText
             labelTitle="Nacionalidad"
-            defaultValue={
-              nacionalidadId !== undefined ? nacionalidadId : "Vacio"
-            }
+            placeholder={ nacionalidadId}
             updateFormValue={(value) => onInputChange("nacionalidad", value)}
           />
           <InputText
             labelTitle="Ocupación"
-            defaultValue={ocupacionId !== undefined ? ocupacionId : "Vacio"}
+            placeholder={ocupacionId}
             updateFormValue={(value) => onInputChange("ocupacion", value)}
           />
           <InputText
             labelTitle="Residencia"
-            defaultValue={residenciaId !== undefined ? residenciaId : "Vacio"}
+            placeholder={residenciaId}
             updateFormValue={(value) => onInputChange("residencia", value)}
           />
         </div>
