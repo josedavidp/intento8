@@ -11,7 +11,7 @@ const AboutItem2 = ({ course, onOpenDetails }) => {
             <div className="flex mt-6 space-x-3">
                 <div className="flex flex-col space-y-3">
                     <p className="text-sm text-blue poppins">{course.description}</p>
-                    <Link to={`/continuar?idCurso=${course.id}`}>
+                    <Link to={`/continuar?idCurso=${course.id}&titleId=${course.title}`}>
                         <button className="bg-yellow text-blue border border-yellow rounded-md
                     py-2 px-4 float-right hover:bg-blue hover:border-blue hover:text-white focus:outline-none">
                             Continuar con el curso

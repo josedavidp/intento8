@@ -14,7 +14,7 @@ function Dashboard({userId,nameId}) {
         <div className="flex h-screen overflow-hidden bg-gray">
 
             {/* Sidebar */}
-            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
+            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} userId={userId} />
 
             {/* Content area */}
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">

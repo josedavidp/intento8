@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import AboutItem from './AboutItem';
-
+import Swal from 'sweetalert2';
 const AboutUs = ({userId}) => {
     const [aboutData, setAboutData] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
@@ -39,9 +39,15 @@ const AboutUs = ({userId}) => {
                 }),
             });
 
-            if (response.ok) {
+            if (response.ok) {  
                 console.log('Registro exitoso', response.data);
-                alert('Registro de Curso exitoso');
+                Swal.fire({
+                    icon: "success",
+                    title: "Registro de Curso exitoso",
+                    showConfirmButton: false,
+                    timer: 1000  // Ajusta el tiempo según sea necesario
+                  });
+               
             } else {
                 console.error('Error en el registro:', response.statusText);
             }

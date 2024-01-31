@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TitleCard from './TitleCard';
 import InputText from './ImputText';
+import Swal from 'sweetalert2';
 
 function CrearCurso() {
     const [courseData, setCourseData] = useState({
@@ -10,6 +11,8 @@ function CrearCurso() {
         description: 'Un curso de economía básica te introduce a conceptos fundamentales como oferta, demanda, precios, mercados y cómo funcionan los sistemas económicos. Ayuda a comprender cómo se toman decisiones en la producción, distribución y consumo de bienes y servicios.',
         content: 'El contenido del curso incluye...'
     });
+
+    const [moduleToDelete, setModuleToDelete] = useState(null);
 
     const [modules, setModules] = useState([]);
 
@@ -33,6 +36,13 @@ function CrearCurso() {
             };
             return newModules;
         });
+    };
+
+    const deleteModule = () => {
+        if (modules.length > 0) {
+            setModules((prevModules) => prevModules.slice(0, -1));
+            setModuleToDelete(null);
+        }
     };
 
     const createCourse = async () => {
@@ -76,7 +86,14 @@ function CrearCurso() {
             });
 
             if (modulesResponse.ok) {
-                alert('Curso y módulos creados con éxito');
+                
+                Swal.fire({
+                    icon: "success",
+                    title: "Curso y módulos creados con éxito",
+                    showConfirmButton: false,
+                    timer: 1500  // Ajusta el tiempo según |sea necesario
+                  });
+
             } else {
                 console.error('Error al crear los módulos:', modulesResponse.statusText);
             }
@@ -153,6 +170,8 @@ function CrearCurso() {
                 ))}
                 <div className="divider mt-2"></div>
 
+                <div className="d-flex justify-content-between">
+
                 <button
                     className="bg-yellow text-blue border border-yellow rounded-md 
                     py-2 px-4 block mx-auto hover:bg-blue hover:border-blue hover:text-white focus:outline-none"
@@ -162,6 +181,16 @@ function CrearCurso() {
                     Agregar nuevo módulo
                 </button>
 
+                <br/>
+
+                    <button
+                        className="bg-danger text-blue border border-blue rounded-md
+                    py-2 px-4 block mx-auto hover:bg-red hover:border-red hover:text-white focus:outline-none"
+                        onClick={deleteModule}
+                    >
+                        Eliminar último módulo
+                    </button>
+                    </div>
 
 
                 <div className="mt-16">

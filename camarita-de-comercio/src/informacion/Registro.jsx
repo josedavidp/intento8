@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import ImgIngresar from '../images/bg.png';
-
+import Swal from 'sweetalert2';
 
 
 const Registro = () => {
@@ -24,7 +24,7 @@ const Registro = () => {
                
                 if (password !== password2) {
 
-                    alert('ERROR! Las Contraseñas no coinciden')
+                    Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
                     return;
                 }
 
@@ -35,13 +35,21 @@ const Registro = () => {
                     password,
                     password2,
                 });
-                    alert('Registro Exitoso!! Porfavor Regrese al inicio de sesion')
+
+                await Swal.fire({
+                    icon: "success",
+                    title: "Registro Exitoso",
+                    text: "Regresa al inicio para ingresar!",
+                    showConfirmButton: true
+                      // Ajusta el tiempo según sea necesario
+                  });
+
                 console.log('Respuesta del servidor:', response.data);
 
                
             } catch (error) {
                 console.error('Error al enviar datos al servidor:', error.message);
-                alert('Porfavor Complete Todos Los Campos')
+                Swal.fire('Error en registro', 'Porfavor complete todos los campos', 'error');
                
             }
         } else {

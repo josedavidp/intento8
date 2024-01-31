@@ -3,6 +3,7 @@ import InputText from "./ImputText";
 import TextAreaInput from "./TextAreaImput";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Swal from 'sweetalert2';
 
 function ProfileSettings({
   userId,
@@ -44,9 +45,16 @@ function ProfileSettings({
       if (response.ok) {
         const data = await response.json();
         console.log("Usuario actualizado con éxito:", data);
-        alert(
-          "Perfil Actualizado Con Exito,Se mostraran los cambios cuando vuelvas iniciar sesion"
-        );
+       
+
+        Swal.fire({
+          icon: "success",
+          title: "Perfil Actualizado Con Exito",
+          text: "Se mostraran los cambios cuando vuelvas iniciar sesion",
+          showConfirmButton:true
+          
+        });
+        
       } else {
         console.error("Error al actualizar el usuario:", response.statusText);
       }
@@ -67,7 +75,7 @@ function ProfileSettings({
           <InputText labelTitle="Email" defaultValue={emailId} disabled />
           <InputText
               labelTitle="Edad"
-              placeholder={ageId ? (ageId) : ("Vacio")}
+              placeholder={ageId}
               updateFormValue={(value) => onInputChange("age", value)}
             />
 

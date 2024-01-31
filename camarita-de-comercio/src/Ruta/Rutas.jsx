@@ -167,7 +167,7 @@ const Rutas = () => {
               <>
                 {/* Rutas accesibles solo cuando el usuario NO está autenticado */}
                 <Route
-                  path="/"
+                  path="/*"
                   element={
                     <>
                       <NavBar />
